@@ -1,0 +1,71 @@
+.banner{
+    height: 500px;
+    background: url('../../assets/agent.png');
+    background-repeat: round;
+}
+.main{
+    background: #F9F9FB;
+}
+.card{
+    background: #ffffff;
+    box-shadow: 3px 3px rgba(53, 53, 53, 0.163); 
+}
+.card:hover{
+    background: #d8f1ff;
+    box-shadow: 7px 7px rgba(123, 134, 137, 0.312); 
+}
+.card img{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}.teamBadge{
+    background: rgba(255, 255, 95, 0.734); 
+    border-radius: 40px;
+}
+.agent-list{
+    display: grid;
+    grid-column: auto auto;
+    grid-template-columns: auto auto ;
+}
+
+.finding_agent{
+    height: 400px;
+    background: url('../../assets/agent_section.jpg');
+    background-repeat: round;
+}
+.section_txt{
+    padding-top:100px ;
+}
+.faq{
+    background: #313F51;
+    padding: 30px;
+}
+.accordion{
+    background: #313F51;
+    --bs-accordion-bg: #313f51;
+    --bs-accordion-active-bg: #313f51;  
+    --bs-accordion-color: #fafafa;
+    --bs-accordion-active-color: #fafafa;
+    --bs-accordion-btn-color:#fafafa;
+    --bs-accordion-border-width:3px;
+    --bs-accordion-btn-focus-box-shadow:none;
+}
+.accordion-button{
+    font-weight: bolder;
+}
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width:1024px) {
+
+    .banner{
+        height: 350px;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .banner{
+        height: 250px;
+    }
+}

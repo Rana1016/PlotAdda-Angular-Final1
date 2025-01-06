@@ -1,0 +1,500 @@
+<div class="content-container1" style="background-color: #13a137; padding: 5px 30px; left: 0; width: 100%;">
+    <div class="row">
+      
+<!-- Buy and rent drop dropdown -->
+<div class="filter_div col-md-3"  >
+        <div class="label">
+          <label for="" style="color: white;"><b>I want to</b></label>
+        </div>
+        <div class="">
+          <div class="">
+              <select class="form-control" id="purpose" name="whoAreU">
+                  <option value="buy">Buy</option>
+                  <option value="rent">Rent</option>
+              </select>
+          </div>
+        </div>
+</div>
+          <!-- city dropdown -->
+          <div class="filter_div col-md-3">
+            <div class="label">
+              <label for=""  style="color: white;"><b>City</b></label>
+            </div>
+              <select class="py-2 w-100">
+                <option value="">--Select--</option>
+                 <option *ngFor="let city of cityList" value="{{city.value}}">{{city.cityName}}</option>
+              </select>
+          </div>
+
+
+          <!-- Location dropdown -->
+          <div class=" filter_div col-md-3">
+            <div class="label">
+              <label for="" style="color: white;"><b>Location</b></label>
+            </div>
+            <input type="text" class="w-100 form-control" placeholder="Enter Location" >
+          </div>
+            
+          <div class="filter_div col-md-3">
+            <div class="label">
+                <label for="" style="color: white;"><b>Property Type</b></label>
+            </div>
+            <div style="position: relative;">
+              <div id="div1" style="background-color: white; color: black; height: 40px; cursor: pointer; border: 1px solid black; border-radius: 5px; display: flex; align-items: center; padding-left: 10px;" onclick="toggleDiv()">
+                <h6 class="propertyTypeTxt" style="margin: 0;">Home</h6>
+                </div>
+        
+                <div id="div2" style="background-color: white; display: none; margin-top: 5px; border: 1px solid black; border-radius: 5px; position: absolute; top: 45px; left: 0; width: 100%; z-index: 1;">
+                 <div class="tab-container1">
+                <ul class="nav nav-tabs custom-tabs" id="propertyTabs" role="tablist" style="background-color: white; ">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="updatePropertyType('Home')">Homes</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="plots-tab" data-bs-toggle="tab" data-bs-target="#plots" type="button" role="tab" aria-controls="plots" aria-selected="false" onclick="updatePropertyType('Plots')">Plots</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="commercial-tab" data-bs-toggle="tab" data-bs-target="#commercial" type="button" role="tab" aria-controls="commercial" aria-selected="false"  onclick="updatePropertyType('Commercial')">Commercial</button>
+                  </li>
+                </ul>
+              </div>
+              
+              <style>
+                .tab-container1 {
+                  display: flex;
+                  justify-content: center; /* Centers the ul horizontally */
+                }
+
+
+                
+
+  /* Custom styling for tabs */
+  .custom-tabs .nav-link {
+    color: black; /* Unselected tab color */
+    font-weight: 500;
+    border: none; /* Remove border */
+    border-bottom: 2px solid transparent; /* Hide bottom border by default */
+  }
+  
+  #div1 ,#div2{
+    border-radius: 5px;
+  }
+  /* Style for the active tab */
+  .custom-tabs .nav-link.active {
+    color: #28a745; /* Green color for selected tab */
+    border-bottom: 3px solid #28a745; /* Green underline for selected tab */
+    font-weight: bold;
+  }
+
+  /* Hover effect */
+  .custom-tabs .nav-link:hover {
+    color: #28a745; /* Green color on hover */
+  }
+  
+</style>
+          
+<script>
+
+
+  // Function to toggle visibility of div2
+
+  function updatePropertyType(type) {
+    document.querySelector('.propertyTypeTxt').textContent = type;
+   // Optionally close the dropdown after selecting
+  }
+
+  
+  function toggleDiv() {
+    var div = document.getElementById('div2');
+    if (div !== null) {
+        div.style.display = (div.style.display === 'none') ? 'block' : 'none';
+    } else {
+        console.error('Element not found');
+    }
+}
+
+
+  
+</script>
+              <!-- Tab Content -->
+              <div class="tab-content" id="propertyTabsContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <!-- Property Types for Homes -->
+                  <div class="btn-group-wrap">
+                    <input type="radio" class="btn-check" name="propertyType" id="house" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="house">House</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="flat" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="flat">Flat</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="upperPortion" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="upperPortion">Upper Portion</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="lowerPortion" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="lowerPortion">Lower Portion</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="farmHouse" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="farmHouse">Farm House</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="room" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="room">Room</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="penthouse" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="penthouse">Penthouse</label>
+                </div>
+                
+                  
+               
+                </div>
+                <div class="tab-pane fade" id="plots" role="tabpanel" aria-labelledby="plots-tab">
+                  <!-- Property Types for Plots -->
+                  <div class="btn-group-wrap">
+                    <input type="radio" class="btn-check" name="plotType" id="plotType1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="plotType1">Residential Plot</label>
+                
+                    <input type="radio" class="btn-check" name="plotType" id="plotType2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="plotType2">Commercial Plot</label>
+                
+                    <input type="radio" class="btn-check" name="plotType" id="plotType3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="plotType3">Agriculture Land</label>
+
+                    <input type="radio" class="btn-check" name="plotType" id="plotType4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="plotType4">Industrial Land</label>
+
+                    <input type="radio" class="btn-check" name="plotType" id="plotType5" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="plotType5">Plot File</label>
+
+                    <input type="radio" class="btn-check" name="plotType" id="plotType6" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="plotType6">Plot Form</label>
+                </div>
+                
+                </div>
+                <div class="tab-pane fade" id="commercial" role="tabpanel" aria-labelledby="commercial-tab">
+                  <!-- Property Types for Commercial -->
+                  <div class="btn-group-wrap">
+                    <input type="radio" class="btn-check" name="propertyType" id="shop" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="shop">Shop</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="office" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="office">Office</label>
+                
+                    <input type="radio" class="btn-check" name="propertyType" id="showroom" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="showroom">WareHouse</label>
+                    <input type="radio" class="btn-check" name="propertyType" id="showroom1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="showroom1">Factory</label>
+
+                    <input type="radio" class="btn-check" name="propertyType" id="showroom2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="showroom2">Building</label>
+
+                    <input type="radio" class="btn-check" name="propertyType" id="showroom3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="showroom3">Other</label>
+                </div>
+                  <style>
+                    .btn-group-wrap {
+                      display: flex;
+                      flex-wrap: wrap;       /* Allows wrapping */                  
+                      padding: 10px;          /* Space between buttons */
+                      
+                    }
+                    .btn-group-wrap .btn {
+                      flex: 1 1 150px;       /* Adjust the width as needed */
+                    }
+                  </style>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+    <div class="row">
+<!-- price dropdown -->
+
+<div class="filter_div col-md-3">
+  <div class="label_price">
+      <label for="min-price" style="color: white;"><b>Price</b></label>
+  </div>
+
+  <!-- Display Selected Price Range -->
+  <div style="position: relative;">
+  <div id="price_div">
+      <h6 class="priceTxt">0 to Any</h6>
+  </div>
+
+  <!-- Dropdowns for Price Selection (Initially Hidden) -->
+  <div id="price-range-dropdown" class="d-flex_price" style="display: none; height: 336; background-color: white; border-radius: 5px; padding: 10px; position: absolute; z-index: 3;border: 1px solid #111111;">
+      <div class="price-input">
+          <label>Min:</label>
+          <input type="text" class="styled-input_price_min" placeholder="0">
+          <div class="btn-group-wrap_price">
+            <script>
+                const minPriceValues = Array.from({ length: 20 }, (_, i) => i * 500000);
+                minPriceValues.forEach((value, index) => {
+                    const radioId = `min-value${index + 1}`;
+                    document.write(`
+                        <input type="radio" class="btn-check" name="min-price" id="${radioId}" value="${value}" ${index === 0 ? 'checked' : ''}>
+                        <label class="btn btn-outline-primary" for="${radioId}">${value.toLocaleString()}</label>
+                    `);
+                });
+            </script>
+        </div>
+        
+      </div>
+      <div class="price-input">
+          <label>Max:</label>
+          <input type="text" class="styled-input_price_Max" placeholder="Any">
+          <div class="btn-group-wrap_price">
+            <script>
+                const maxPriceValues = Array.from({ length: 19 }, (_, i) => 500000 + i * 500000); // Start from 500,000
+        
+                // Add "Any" option manually
+                document.write(`
+                    <input type="radio" class="btn-check" name="max-price" id="max-value1" value="any" checked>
+                    <label class="btn btn-outline-primary" for="max-value1">Any</label>
+                `);
+        
+                // Generate dynamic values
+                maxPriceValues.forEach((value, index) => {
+                    const radioId = `max-value${index + 2}`; // Start from 2 because "Any" is already 1
+                    document.write(`
+                        <input type="radio" class="btn-check" name="max-price" id="${radioId}" value="${value}">
+                        <label class="btn btn-outline-primary" for="${radioId}">${value.toLocaleString()}</label>
+                    `);
+                });
+            </script>
+        </div>
+        
+        
+        
+      </div>
+  </div>
+</div>
+</div>
+
+<script>
+  // JavaScript for Toggle and Update
+  const priceDiv = document.getElementById('price_div');
+  const dropdown = document.getElementById('price-range-dropdown');
+  const priceTxt = document.querySelector('.priceTxt');
+  const minPrizeInputBox = document.querySelector('.styled-input_price_min');
+  const maxPrizeInputBox = document.querySelector('.styled-input_price_Max');
+
+  // Initial values for min and max prices
+  let minPrice = "0";
+  let maxPrice = "Any";
+
+  // Set initial text in priceTxt
+  priceTxt.textContent = `${minPrice} to ${maxPrice}`;
+  minPrizeInputBox.value = minPrice;
+  maxPrizeInputBox.value=maxPrice;
+  // Toggle visibility of the dropdown when priceDiv is clicked
+  priceDiv.addEventListener('click', function() {
+      dropdown.style.display = dropdown.style.display === 'none' ? 'flex' : 'none';
+  });
+
+  // Update the selected minPrice when a radio button is clicked
+  document.querySelectorAll('input[name="min-price"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+          minPrice = this.value;
+          priceTxt.textContent = `${minPrice} to ${maxPrice}`;
+          minPrizeInputBox.value = minPrice;
+      });
+  });
+
+  // Update the selected maxPrice when a radio button is clicked
+  document.querySelectorAll('input[name="max-price"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+          maxPrice = this.value;
+          priceTxt.textContent = `${minPrice} to ${maxPrice}`;
+         
+          maxPrizeInputBox.value=maxPrice;
+      });
+  });
+</script>
+
+<!-- area range drop down -->
+
+<div class="filter_div col-md-3">
+  <div class="label">
+      <label for="areaRange" style="color: white;"><b>Area Marla to Kanal</b></label>
+      <select id="areaRange" name="areafilter" class="form-select">
+          <option value="">Select</option>
+          <option value="1-m">1 Marla</option>
+          <option value="2-m">2 Marla</option>
+          <option value="3-m">3 Marla</option>
+          <option value="4-m">4 Marla</option>
+          <option value="5-m">5 Marla</option>
+          <option value="6-m">6 Marla</option>
+          <option value="7-m">7 Marla</option>
+          <option value="8-m">8 Marla</option>
+          <option value="9-m">9 Marla</option>
+          <option value="10-m">10 Marla</option>
+     <hr>
+          <option value="2-m">2 Kanal</option>
+          <option value="4-k">4 Kanal</option>
+          <option value="6-k">6 Kanal</option>
+          <option value="8-k">8 Kanal</option>
+          <option value="10-k">10 Kanal</option>
+ 
+      </select>
+  </div>
+</div>
+
+
+<div class="filter_div col-md-3">
+  <div class="label_area">
+      <label for="min-area" style="color: white;"><b>Area</b></label>
+  </div>
+
+  <!-- Display Selected Area Range -->
+  <div style="position: relative;">
+      <div id="area_div">
+          <h6 class="areaTxt">0 to Any</h6>
+      </div>
+
+      <!-- Dropdowns for Area Selection (Initially Hidden) -->
+      <div id="area-range-dropdown" class="d-flex_area" style="display: none; height: 336; background-color: white; border-radius: 5px; padding: 10px; position: absolute; z-index: 3; border: 1px solid #111111;">
+          <div class="area-input">
+              <label style="margin-left: 70px;">Min:</label>
+              <input type="text" class="styled-input_area_min" style="margin-left: 10px;" placeholder="0">
+              <div class="btn-group-wrap_area">
+                  <!-- Min Values -->
+                  <input type="radio" class="btn-check" name="min-area" id="min-area1" value="0" checked>
+                  <label class="btn btn-outline-primary" for="min-area1">0</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area2" value="2">
+                  <label class="btn btn-outline-primary" for="min-area2">2</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area3" value="4">
+                  <label class="btn btn-outline-primary" for="min-area3">4</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area4" value="6">
+                  <label class="btn btn-outline-primary" for="min-area4">6</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area5" value="8">
+                  <label class="btn btn-outline-primary" for="min-area5">8</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area6" value="10">
+                  <label class="btn btn-outline-primary" for="min-area6">10</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area7" value="12">
+                  <label class="btn btn-outline-primary" for="min-area7">12</label>
+
+                  <input type="radio" class="btn-check" name="min-area" id="min-area8" value="14">
+                  <label class="btn btn-outline-primary" for="min-area8">14</label>
+              </div>
+          </div>
+
+          <div class="area-input">
+              <label style="margin-left: 70px;">Max:</label>
+              <input type="text" class="styled-input_area_max" style="margin-left: 10px;" placeholder="Any">
+              <div class="btn-group-wrap_area">
+                  <!-- Max Values -->
+                  <input type="radio" class="btn-check" name="max-area" id="max-area1" value="Any" checked>
+                  <label class="btn btn-outline-primary" for="max-area1">Any</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area2" value="2">
+                  <label class="btn btn-outline-primary" for="max-area2">2</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area3" value="4">
+                  <label class="btn btn-outline-primary" for="max-area3">4</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area4" value="6">
+                  <label class="btn btn-outline-primary" for="max-area4">6</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area5" value="8">
+                  <label class="btn btn-outline-primary" for="max-area5">8</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area6" value="10">
+                  <label class="btn btn-outline-primary" for="max-area6">10</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area7" value="12">
+                  <label class="btn btn-outline-primary" for="max-area7">12</label>
+
+                  <input type="radio" class="btn-check" name="max-area" id="max-area8" value="14">
+                  <label class="btn btn-outline-primary" for="max-area8">14</label>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  // JavaScript for Toggle and Update
+const areaDiv = document.getElementById('area_div');
+const areaDropdown = document.getElementById('area-range-dropdown');
+const areaTxt = document.querySelector('.areaTxt');
+const minAreaInputBox = document.querySelector('.styled-input_area_min');
+const maxAreaInputBox = document.querySelector('.styled-input_area_max');
+
+// Initial values for min and max area
+let minArea = "0";
+let maxArea = "Any";
+
+// Set initial text in areaTxt
+areaTxt.textContent = `${minArea} to ${maxArea}`;
+minAreaInputBox.value = minArea;
+maxAreaInputBox.value = maxArea;
+
+// Toggle visibility of the dropdown when areaDiv is clicked
+areaDiv.addEventListener('click', function() {
+    areaDropdown.style.display = areaDropdown.style.display === 'none' ? 'flex' : 'none';
+});
+
+// Update the selected minArea when a radio button is clicked
+document.querySelectorAll('input[name="min-area"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        minArea = this.value;
+        areaTxt.textContent = `${minArea} to ${maxArea}`;
+        minAreaInputBox.value = minArea;
+    });
+});
+
+// Update the selected maxArea when a radio button is clicked
+document.querySelectorAll('input[name="max-area"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        maxArea = this.value;
+        areaTxt.textContent = `${minArea} to ${maxArea}`;
+        maxAreaInputBox.value = maxArea;
+    });
+});
+
+</script>
+<!-- bed rooms drop down -->
+
+
+<div id="home_opt" class="col-md-3 d-flex" style="background-color:transparent;">
+  <div class="filter_div w-100 mb-3" style="padding-right: 15px;">
+      <label for="bedrooms" style="color: white;"><b>Beds</b></label>
+      <select class="form-control" id="bedrooms" name="roomNo">
+        <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10+</option>
+      </select>
+  </div>
+  <div class=" filter_div w-100 mb-3" style="padding-left: 15px;">
+      <label for="bathrooms"style="color: white;"><b>Baths</b></label>
+      <select class="form-control" id="bathrooms" name="broomNo">
+        <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5+</option>
+      </select>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+</div>

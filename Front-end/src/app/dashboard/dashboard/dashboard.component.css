@@ -1,0 +1,7 @@
+.main{
+    height: 90vh;
+    overflow-y: scroll;
+}
+footer{
+    display: none;
+}
